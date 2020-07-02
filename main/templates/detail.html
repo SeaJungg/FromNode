@@ -1,0 +1,9 @@
+<h1>나는 {{ row_data.title }}</h1>
+파일명 : {{row_data.media}}<br>
+<a href = "{% url 'dw' pk=row_data.id %}">이 파일 받기</a><br>
+{% if row_data.previous is not null %}
+    {{ row_data.previous.pk }}번의 수정본입니다.
+    <a href = "{{row_data.previous.pk}}">이전 버전 보러 가기</a>
+{% else %}
+    얘가 처음이양
+{% endif %}
