@@ -7,9 +7,3 @@ class Post(models.Model):
     media =  models.FileField(upload_to="media", blank=True)
     def __str__(self):
         return self.title
-
-
-class Node(models.Model):
-    series = models.IntegerField(default=0)
-    data = models.ForeignKey(Post, on_delete=models.SET_NULL, null=True, blank = True)
-    

@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import Post, Node
+from .models import Post
 from django.http import HttpResponse
 from django.utils.encoding import smart_str
 import mimetypes
@@ -9,8 +9,7 @@ def drag(request):
 
 def index(request):
     all = Post.objects.all()
-    series = Node.objects.all()
-    return render(request, 'index.html', {"all":all, "series":series})
+    return render(request, 'index.html', {"all":all})
 
 
 
