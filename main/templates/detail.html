@@ -1,61 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+    <title>나는 디테일</title>  
+{% endblock %} 
+{% block css %}
+    <link href="{% static 'CSS/detail.css' %}" type="text/css" rel="stylesheet"/>
+{% endblock %}
+{% block content %}    
     <h1>나는 {{ pjinfo.projectName }}</h1>
-
-
-{% for node in nodes %}
-    <div id ='dots' style="position : absolute"}>
-        {{node.title}}
-        <p>좌표:{{node.id}},{{node.brach}}</p>
-        <a href = "#">이 파일 받기</a><br>
-    </div>
-
-    <input type="text" id='Y' value ="{{node.brach}}"></input>
-    
-{% endfor %}
-</body>
-<script>
-// 좌표 가져오기//
-var Y_axis = document.querySelectorAll('#Y');
-
-var Dots = document.querySelectorAll('#dots');
-
-// 좌표 숨김//
-    function Clear(){
-        for( var i=0; i<Y_axis.length; i++){
-            var item = Y_axis.item(i);
-            item.style.display = 'none';
-
-        }
-
-    }
-
-    Clear();
-// 가져온 좌표 묶고, 위치 배정//
-
-    function Cooridate(){
-
-        for( var i =0; i<Dots.length; i++){
-            var item = Dots.item(i);
-            var X=(i*150+'px');
-            var Before_Y = Y_axis[i].value;
-            var Y = (Before_Y*150+'px');
-            item.style.setProperty('padding-left',X);
-            item.style.setProperty('padding-top',Y);
-            console.log(X)
-            console.log(Y)
-            
-            
-            }
-
-    }
-
-    Cooridate();
-</script>
-</html>
+    {% for node in nodes %}
+        <div id ='dots' style="position : absolute"}>
+            {{node.title}}
+            <p>좌표:{{node.id}},{{node.brach}}</p>
+            <a href = "#">이 파일 받기</a><br>
+        </div>
+        <input type="text" id='Y' value ="{{node.brach}}"></input>
+    {% endfor %}
+{% endblock %}    
+{% block js %}
+    <script src="{% static 'JS/detail.js' %}" type="text/javascript"></script>
+{% endblock %}
