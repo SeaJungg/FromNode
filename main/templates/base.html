@@ -14,9 +14,16 @@
     <div class="container">
         <div class="header">
             <div class="header_content">
-                <div class="header_content_left"><p>FROMNODE</p></div>
-                <div class="header_content_middle"><p>FROMNODE</p></div>
-                <div class="header_content_right"><p>FROMNODE</p></div>
+                <ul>
+                    {% if user.is_authenticated %}
+                    <li>{{user.username}}님 하이염</li>
+                    <li><a href="{% url 'logout' %}">로그아웃</a></li>
+                    <li><a href="#">마이페이지</a></li>
+                    {% else %}
+                    <li><a href="{%url 'account:login' %}">로그인</a></li>
+                    <li><a href="{%url 'account:signup' %}">회원가입</a></li>
+                    {% endif %}
+                </ul>
             </div>
         </div>
         <div class="main">

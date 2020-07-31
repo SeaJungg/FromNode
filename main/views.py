@@ -11,10 +11,6 @@ from django.core.files.storage import FileSystemStorage
 def drag(request):
     return render(request, 'drag.html')
 
-def index(request):
-
-    return render(request, 'index.html')
-
 
 def detail(request, id):
     pjinfo = get_object_or_404(Projects, pk=id)

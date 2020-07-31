@@ -6,7 +6,6 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('', views.drag, name='drag'),
-    path('index', views.index, name='index'),
     path('detail/<int:id>', views.detail, name='detail'),
     path('upload/', views.upload, name='upload'),
     path('upload_node/', views.upload_node, name='upload_node'),
