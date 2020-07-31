@@ -5,7 +5,7 @@ import mimetypes
 from .models import Members, Projects, Posts
 
 from .forms import PostForm
-
+from django.views import generic
 
 from django.core.files.storage import FileSystemStorage
 def drag(request):
@@ -39,12 +39,19 @@ def upload_node(request): #form 사용하는 testing code
         form = PostForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            return redirect('upload_list')
+            return redirect('upload_list.0000')
     else:
         form=PostForm()
 
     return render(request, 'upload_node.html', {'form':form})
 
-def upload_list(request):
-    posts = Posts.objects.all()
-    return render(request, 'upload_list.html', {'posts':posts})
+# def upload_list(request):
+#     posts = Posts.objects.all()
+#     return render(request, 'upload_list.html', {'posts':posts})
+
+
+# by CBV
+class NodeListView(generic.ListView):
+    model = Posts
+    template_name = 'upload_list.html'
+    context_object_name = 'posts'
