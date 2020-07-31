@@ -6,11 +6,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="/static/css.css">
+    <style>
+        body > * {
+            all:unset;
+            background-color: yellowgreen;
+        }
+        .container {
+            display: grid;
+            height: 100vh;
+            width: 100%;
+            grid-template: 
+                "header" 1fr
+                "main" 6fr
+                "footer" 1fr
+            ;
+            place-items: center;
+        }
+        .header{
+            background-color: tomato;
+        }
+        .main{
+            background-color: turquoise;
+        }
+        .footer{
+            background-color: violet;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
-        <h1>F R O M _ N O D E</h1>
-        <div class = "node">
+        <div class="header">
+            <h1>F R O M _ N O D E</h1>
+        </div>
+        <div class = "main">
+            무언가 들어가야지
             {% for one in series %}
                 {% if one.series == 0 %}
                     <div class="zero">{{one.data.date}} <a href = "{% url 'detail' one.data.id %}"><h1>{{one.data.title}}</h1></a></div>
@@ -20,6 +49,9 @@
                         <a href = "{% url 'detail' one.data.id %}"><h1>{{one.data.title}}</h1></a></div>
                 {% endif %}
             {% endfor %}    
+        </div>
+        <div class="footer">
+            <p>만든이 : 멋사</p>
         </div>
     </div>
 </body>

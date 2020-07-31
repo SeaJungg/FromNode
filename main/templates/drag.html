@@ -1,3 +1,46 @@
-<h1>파일을 이 창에 드래그하세요 </h1>
-<br>
-<a href = "{% url 'index' %}">그냥 다운로드만 받기</a>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>드래그페이지</title>
+    <style>
+        .drag_container {
+            display: grid;
+            height: 100vh;
+            width: 100%;
+            grid-template: 
+                "header" 1fr
+                "main" 6fr
+                "footer" 1fr
+            ;
+            place-items: center;
+        }
+        .drag_header{
+            background-color: tomato;
+        }
+        .drag_main{
+            background-color: turquoise;
+        }
+        .drag_footer{
+            background-color: violet;
+        }
+    </style>
+</head>
+<body>
+    <div class="drag_container">
+        <div class="drag_header">
+            <Div class="header_left">
+                <button><span>F.R.O.M.N.O.D.E</span></button>
+            </Div>
+        </div>
+        <div class="drag_main">
+            <h1>파일을 이 창에 드래그하세요 </h1>
+        </div>
+        
+        <br>
+        <a href = "{% url 'index' %}">그냥 다운로드만 받기</a>
+    </div>
+</body>
+</html>
+
