@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FromNode|SignUp</title>
+</head>
+<body>
+    <a id="signup-page" href="{{ account_signup }}"><strong>회원가입</strong><a>
+        <center>
+          <div class ="signup-box">
+            <form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
+              {% csrf_token %}
+              {{ form.as_p }}
+              {% if redirect_field_value %}
+              <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+              {% endif %}
+              <br>
+              <button class="btn btn-light" type="submit">확인</button>
+    
+            </form>
+    
+        <br>
+        <hr class="line">
+            <h6>이미 계정이 있으십니까? <a id="login-go" href="{{ login_url }}">로그인</a></h6>
+          </div>
+        </center>
+</body>
+</html>

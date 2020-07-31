@@ -26,6 +26,20 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'main',
+    'users',
+
+        'django.contrib.sites', # sites 추가
+
+    # allauth
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+
+    # provider 구글 페이스북 ..소셜로그인 제공업체
+    'allauth.socialaccount.providers.google',
+
+    # # poppler pdf file renderer
+    # 'poppler'
 ]
 
 MIDDLEWARE = [

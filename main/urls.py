@@ -1,9 +1,10 @@
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from . import views
 from django.conf import settings
 from django.conf.urls.static import static
 
+app_name = 'main'
 urlpatterns = [
     path('', views.drag, name='drag'),
     path('index', views.index, name='index'),
