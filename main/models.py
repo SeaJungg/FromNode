@@ -5,7 +5,6 @@ class Members(models.Model):
     memberNo = models.IntegerField(default=0, primary_key=True, auto_created=True)
     memberName = models.CharField(max_length=125)
 
-
 class Projects(models.Model):
     objects = models.Manager()
     projectNo = models.IntegerField(default=0, primary_key=True, auto_created=True)

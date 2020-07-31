@@ -1,0 +1,22 @@
+<h2>Upload 한 node들 list</h2>
+<p>
+    <a href="{% url 'upload_node' %}">Upload New File</a>
+</p>
+<table>
+    <thead>
+        <tr>
+            <th>설명</th>
+            <th>파일</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for post in posts %}
+        <tr>
+            <td>{{ post.title }}</td>
+            <td>
+                <a href="{{ post.media.url }}" target="_blank">Download file</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>

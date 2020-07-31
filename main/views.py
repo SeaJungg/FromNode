@@ -4,6 +4,9 @@ from django.utils.encoding import smart_str
 import mimetypes
 from .models import Members, Projects, Posts
 
+from .forms import PostForm
+
+
 from django.core.files.storage import FileSystemStorage
 def drag(request):
     return render(request, 'drag.html')
@@ -20,7 +23,7 @@ def detail(request, id):
 
 
 # 혜선의 testing code
-def upload(request):
+def upload(request): #database 연결 안하는 testing code
     # File storage API - FileSystemStorage
     context={}
     if request.method=="POST":
@@ -35,3 +38,17 @@ def upload(request):
         context['url']=fs.url(name)
     return render(request, 'upload.html', context)
 
+def upload_node(request): #form 사용하는 testing code
+    if request.method =="POST":
+        form = PostForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('upload_list')
+    else:
+        form=PostForm()
+
+    return render(request, 'upload_node.html', {'form':form})
+
+def upload_list(request):
+    posts = Posts.objects.all()
+    return render(request, 'upload_list.html', {'posts':posts})
