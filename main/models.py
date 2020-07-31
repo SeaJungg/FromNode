@@ -19,5 +19,3 @@ class Posts(models.Model):
 
     memberNo = models.ForeignKey(Members,on_delete=models.SET_NULL, null = True, blank = True)
     projectNo = models.ForeignKey(Projects,on_delete=models.SET_NULL, null = True, blank = True)
-
-
