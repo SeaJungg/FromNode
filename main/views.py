@@ -18,3 +18,12 @@ def detail(request, id):
     return render(request, 'detail.html', {'pjinfo':pjinfo,"nodes":nodes,})
 
 
+# 혜선의 testing code
+def upload(request):
+    if request.method=="POST":
+        uploaded_file = request.FILES['document']
+        print(uploaded_file.name)
+        print(uploaded_file.size)
+        print(uploaded_file.content_type)
+    return render(request, 'upload.html')
+
