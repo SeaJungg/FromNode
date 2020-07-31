@@ -9,6 +9,8 @@ urlpatterns = [
     path('index', views.index, name='index'),
     path('detail/<int:id>', views.detail, name='detail'),
     path('upload/', views.upload, name='upload'),
+    path('upload_node/', views.upload_node, name='upload_node'),
+    path('upload_list/', views.upload_list, name='upload_list'),
 ]  
 
 if settings.DEBUG:
