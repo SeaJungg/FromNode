@@ -1,31 +1,21 @@
+from django.contrib.auth import authenticate, login
 from django.shortcuts import render, redirect
+from account.forms import UserForm
 
-'''
-#Session Create
-def login(request):
-    if request.method == 'POST':
-        login_form = AuthenticationForm(request, request.POST)
-        if login_form.is_valid():
-            auth_login(request, login_form.get_user())
-        return redirect('index')
-    
-    else:
-        login_form = AuthenticationForm()
-    
-    return render(request, 'account/login.html', {'login_form' : login_form})
 
 def signup(request):
-    if request.method == 'POST':
-        signup_form = UserCreationForm(request.POST)
-        if signup_form.is_valid():
-            signup_form.save()
-        return redirect('index')
+    """
+    계정생성
+    """
+    if request.method == "POST":
+        form = UserForm(request.POST)
+        if form.is_valid():
+            form.save()
+            username = form.cleaned_data.get('username')
+            raw_password = form.cleaned_data.get('password1')
+            user = authenticate(username=username, password=raw_password)
+            login(request, user)
+            return redirect("index")
     else:
-        signup_form = UserCreationForm()
-    return render(request, 'account/signup.html', {'signup_form':signup_form})
-
-
-def logout(request):
-    auth_logout(request)
-    return redirect('posts:list')
-'''
+        form = UserForm()
+    return render(request, 'account/signup.html', {'form': form})
