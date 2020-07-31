@@ -9,6 +9,9 @@ urlpatterns = [
     path('index', views.index, name='index'),
     path('detail/<int:id>', views.detail, name='detail'),
     path('upload/', views.upload, name='upload'),
-]  + static(settings.MEDIA_URL, media_root=settings.MEDIA_ROOT)
+]  
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 
