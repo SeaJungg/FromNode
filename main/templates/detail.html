@@ -12,9 +12,16 @@
             align-content: center;
             justify-content: center;
             border:0px;
-            padding:0px;
             
 
+        }
+
+        #dots{
+            border-radius: 30%;
+            border:3px solid black;
+            align-content: center;
+            justify-content: center;
+            padding:0px;
         }
     </style>
 </head>
@@ -25,8 +32,6 @@
 {% for node in nodes %}
     <div id ='dots' style="position : absolute"}>
         {{node.title}}
-        <p>좌표:{{node.id}},{{node.brach}}</p>
-        <a href = "#">이 파일 받기</a><br>
     </div>
 
     <div id="lines"style="position:absolute"></div>
@@ -104,7 +109,7 @@ var Dots = document.querySelectorAll('#dots');
                 var degree = "rotate(0deg)";
             }
             else{
-                var degree = "rotate(-90deg)";
+                var degree = "rotate(-45deg)";
 
             }
 
@@ -118,7 +123,7 @@ var Dots = document.querySelectorAll('#dots');
 
             console.log(X_dif,Y_dif);
 
-            var X=(i*150+75+'px');
+            var X=(i*150+20+'px');
             var Y = (Before_Y*150+'px');
            
             item.style.setProperty('transform',degree);
