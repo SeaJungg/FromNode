@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block title %}
+    {% endblock %}
+    {% block css %}
+    {% endblock %}
+<link href="{% static 'CSS/base.css' %}" type="text/css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="header_content">
+                <div class="header_content_left"><p>FROMNODE</p></div>
+                <div class="header_content_middle"><p>FROMNODE</p></div>
+                <div class="header_content_right"><p>FROMNODE</p></div>
+            </div>
+        </div>
+        <div class="main">
+            {% block content %}
+            {% endblock %}
+        </div>
+        <div class="footer">
+            <div class="footer_content">
+                <p>지은이</p>
+            </div>
+        </div>
+    </div>
+    {% block js %}
+    {% endblock %}
+</body>
+</html>
