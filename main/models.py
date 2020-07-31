@@ -1,9 +1,23 @@
 from django.db import models
 
-class Post(models.Model):
+class Members(models.Model):
+    memberNo = models.IntegerField(default=0, primary_key=True, auto_created=True)
+    memberName = models.CharField(max_length=125)
+
+
+class Projects(models.Model):
+    projectNo = models.IntegerField(default=0, primary_key=True, auto_created=True)
+    projectName = models.CharField(max_length=125)
+
+
+class Posts(models.Model):
     title = models.CharField(max_length=1023)
     date = models.DateTimeField(auto_now=True)
     previous = models.ForeignKey('self', on_delete=models.SET_NULL, null=True, blank = True)
     media =  models.FileField(upload_to="media", blank=True)
-    def __str__(self):
-        return self.title
+    brach = models.IntegerField(default=0)
+
+    memberNo = models.ForeignKey(Members,on_delete=models.SET_NULL, null = True, blank = True)
+    projectNo = models.ForeignKey(Projects,on_delete=models.SET_NULL, null = True, blank = True)
+
+
