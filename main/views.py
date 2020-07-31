@@ -15,5 +15,6 @@ def index(request):
 def detail(request, id):
     pjinfo = get_object_or_404(Projects, pk=id)
     nodes = Posts.objects.filter(projectNo = id)
-    return render(request, 'detail.html', {'pjinfo':pjinfo,"nodes":nodes})
+    return render(request, 'detail.html', {'pjinfo':pjinfo,"nodes":nodes,})
+
 
