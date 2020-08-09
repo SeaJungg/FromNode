@@ -20,4 +20,4 @@ class Posts(models.Model):
     brach = models.IntegerField(default=0)
 
     memberNo = models.ForeignKey(Members,on_delete=models.SET_NULL, null = True, blank = True)
-    projectNo = models.ForeignKey(Projects,on_delete=models.SET_NULL, null = True, blank = True)
+    projectNo = models.ForeignKey(Projects,on_delete=models.SET_NULL, null = True, blank = True, default=1)

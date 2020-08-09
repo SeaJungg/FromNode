@@ -8,11 +8,12 @@
 {% endblock %}
 {% block content %}    
     <h1>나는 {{ pjinfo.projectName }}</h1>
-
+    
 
     {% for node in nodes %}
         <div id ='dots' style="position : absolute"}>
             {{node.title}}
+            <a href="{% url 'upload_node' node.brach %}">여기서 업로드하기</a>
         </div>
 
         <div id="lines"style="position:absolute"></div>

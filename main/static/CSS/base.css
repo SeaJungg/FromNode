@@ -3,7 +3,7 @@ body{
     all:unset;
     margin: 0;
     padding: 0;
-    background-color: black;
+    background-color: green;
     color: white;
 }
 button{
@@ -30,7 +30,6 @@ li{
 }
 .header{
     width: 100%;
-    border-bottom: 2px solid white;
     display: flex;
     justify-content: center;
     align-content: center;
@@ -45,7 +44,6 @@ li{
 }
 .footer{
     width: 100%;
-    border-top: 2px solid white;
 }
 .footer_content{
     display: flex;

@@ -34,24 +34,24 @@ def upload(request): #database 연결 안하는 testing code
         context['url']=fs.url(name)
     return render(request, 'upload.html', context)
 
-def upload_node(request): #form 사용하는 testing code
+def upload_node(request, id): #form 사용하는 testing code
     if request.method =="POST":
         form = PostForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            return redirect('upload_list.0000')
+            return redirect('/detail/1')
     else:
         form=PostForm()
 
     return render(request, 'upload_node.html', {'form':form})
 
-# def upload_list(request):
-#     posts = Posts.objects.all()
-#     return render(request, 'upload_list.html', {'posts':posts})
+def upload_list(request):
+    posts = Posts.objects.all()
+    return render(request, 'upload_list.html', {'posts':posts})
 
 
 # by CBV
-class NodeListView(generic.ListView):
-    model = Posts
-    template_name = 'upload_list.html'
-    context_object_name = 'posts'
+# class NodeListView(generic.ListView):
+#     model = Posts
+#     template_name = 'upload_list.html'
+#     context_object_name = 'posts'
