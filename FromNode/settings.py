@@ -13,7 +13,7 @@ SECRET_KEY = 'ml_iagn0&k(_=w18n($u=a9wbzytqpnla)8jwem0g2^bxv$pwx'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
